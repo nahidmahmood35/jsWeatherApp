@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		
+		<title>Bangladesh Weather</title>
+
+		<!-- Loading third party fonts -->
+		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+		<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+		<!-- Loading main css file -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="select2/select2.css">
+		<link rel="stylesheet" href="css/style.css">
+        
+    </head>
+
+
+	<body>
+		
+		<div class="site-content">
+			<div class="site-header">
+				<div class="container">
+					<a href="index.html" class="branding">
+						<img src="images/logo.png" alt="" class="logo">
+						<div class="logo-type">
+							<h1 class="site-title">Bangladesh Weather</h1>
+							
+						</div>
+					</a>
+
+				</div>
+			</div> <!-- .site-header -->
+
+			<div class="hero">
+				<div class="container">
+					<!--<form action="#" class="find-location">
+						<input type="text" placeholder="Find your location...">
+						<input type="submit" value="Find">
+					</form>-->
+                    
+                     <div class="form-group">
+                      <label style="color: black">Select City</label>
+                      <select class="form-control js-example-basic-single" id="sel1" onchange="GetWeather()">
+                        <option>Dhaka<option>
+                        <option>Faridpur<option>
+                        <option>Gazipur<option>
+                        <option>Gopalganj<option>
+                        <option>Jamalpur<option>
+                        <option>Kishoreganj<option>
+                        <option>Madaripur<option>
+                        <option>Manikganj<option>
+                        <option>Munshiganj<option>
+                        <option>Mymensingh<option>
+                        <option>Narayanganj<option>
+                        <option>Narsingdi<option>
+                        <option>Netrokona<option>
+                        <option>Rajbari<option>
+                        <option>Shariatpur<option>
+                        <option>Sherpur<option>
+                        <option>Tangail<option>
+                        <option>Bogura<option>
+                        <option>Joypurhat<option>
+                        <option>Naogaon<option>
+                        <option>Natore<option>
+                        <option>Nawabganj<option>
+                        <option>Pabna<option>
+                        <option>Rajshahi<option>
+                        <option>Sirajgonj<option>
+                        <option>Dinajpur<option>
+                        <option>Gaibandha<option>
+                        <option>Kurigram<option>
+                        <option>Lalmonirhat<option>
+                        <option>Nilphamari<option>
+                        <option>Panchagarh<option>
+                        <option>Rangpur<option>
+                        <option>Thakurgaon<option>
+                        <option>Barguna<option>
+                        <option>Barishal<option>
+                        <option>Bhola<option>
+                        <option>Jhalokati<option>
+                        <option>Patuakhali<option>
+                        <option>Pirojpur<option>
+                        <option>Bandarban<option>
+                        <option>Brahmanbaria<option>
+                        <option>Chandpur<option>
+                        <option>Chattogram<option>
+                        <option>Cumilla<option>
+                        <option>Feni<option>
+                        <option>Khagrachari<option>
+                        <option>Lakshmipur<option>
+                        <option>Noakhali<option>
+                        <option>Rangamati<option>
+                        <option>Habiganj<option>
+                        <option>Maulvibazar<option>
+                        <option>Sunamganj<option>
+                        <option>Sylhet<option>
+                        <option>Bagerhat<option>
+                        <option>Chuadanga<option>
+                        <option>Jashore<option>
+                        <option>Jhenaidah<option>
+                        <option>Khulna<option>
+                        <option>Kushtia<option>
+                        <option>Magura<option>
+                        <option>Meherpur<option>
+                        <option>Narail<option>
+                        <option>Satkhira<option>
+                      </select>
+                    </div> 
+
+				</div>
+			</div>
+			<div class="forecast-table">
+				<div class="container">
+					<div class="forecast-container">
+						<div class="today forecast">
+							<div class="forecast-header">
+								<div class="day" id="todayDay"></div>
+								<div class="date" id="todayDate"></div>
+							</div> <!-- .forecast-header -->
+                            <div class="row">
+                                <div class="forecast-content col-sm-6">
+                                    <div class="location" id="todayLocation" style="margin-left: 25px; font-size: 20px;">New York</div>
+                                    <div class="degree" style="margin-left: 150px">
+                                        <div class="num" id="todayNum">23</div><div class="num"><sup>o</sup>C</div>
+
+                                    </div>
+
+                                </div>
+                                <div class="forecast-content col-sm-6 " style="font-size: 20px;">
+                                    <div class="location" id="todayLocation">Information</div>
+                                     <span>Humidity</span><span>:</span><span id="todayHumidity"></span><span>%</span></br>
+                                    <span>Wind speed</span><span>:</span><span id="todayWindspeed"></span><span>km/h</span></br>
+                                    <span>Sunrise</span><span>:</span><span id="todaySunrise"></span> </br>
+                                    <span>Sunset</span><span>:</span><span id="todaySunset"></span> </br>
+                                </div>
+                            </div>
+                    <div class="row"><div class="col-sm-12" style="text-align: center; padding-top: 10Px; padding-bottom: 10px; background: rgba(132, 95, 95, 0.1); margin-bottom: 10px;"> May Be Next 10 Days</div></div>
+                            <div class="row" id="forecastText">
+                                <!--<div class="col-sm-3">
+                                    
+                                                                                                                     
+                                            <div class="forecast">
+                                                <div class="forecast-header">
+                                                    <div class="day">Tuesday,</div>
+                                                    <div class="day">19 Aug 2018</div>
+                                                </div> 
+                                                <div class="forecast-content">
+
+                                                    <div class="degree">23<sup>o</sup>C</div>
+                                                    
+                                                    <span>Max Temp</span><span>:</span><span id="">30</span><span>c</span></br>
+                                                    <span>Min Temp</span><span>:</span><span id="">30</span><span>c</span></br>
+                                                    <span>Type</span><span>:</span><span id="">Mostly Sunny</span>
+
+                                                </div>
+                                            </div>
+                                            
+            
+                            </div>-->
+                            
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			
+		</div>
+        <script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+        <script src="select2/select2.js"></script>
+        <script src="js/app.js"></script>
+		
+	</body>
+
+</html>
